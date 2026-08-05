@@ -8,6 +8,61 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="./jemdoc.css" type="text/css" />
 <title>Research Topics | Vincent Y. F. Tan</title>
+
+<style type="text/css">
+
+/* Prevent long lines on wide computer screens. */
+#research-content {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Give each major research area more breathing room. */
+.research-section {
+  margin-top: 2.3em;
+  padding-top: 0.5em;
+  border-top: 1px solid #dddddd;
+}
+
+/* The first section does not need a divider above it. */
+.first-section {
+  border-top: none;
+  margin-top: 1.6em;
+}
+
+/* Improve the readability of representative-paper lists. */
+.paper-list {
+  margin-top: 0.8em;
+  margin-left: 1em;
+  padding-left: 1.4em;
+}
+
+.paper-list li {
+  margin-bottom: 0.9em;
+  line-height: 1.45;
+}
+
+/* Put publication information on a quieter second line. */
+.paper-meta {
+  display: block;
+  margin-top: 0.15em;
+  color: #666666;
+  font-size: 95%;
+}
+
+/* Give ordinary topic lists slightly more space. */
+.topic-list li {
+  margin-bottom: 0.35em;
+}
+
+/* Avoid excessive spacing after the final list item. */
+.paper-list li:last-child,
+.topic-list li:last-child {
+  margin-bottom: 0;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -40,6 +95,7 @@
   <a href="./news.html">News Archive</a>
 </div>
 
+
 <div class="menu-category">Research</div>
 <br />
 
@@ -56,6 +112,7 @@
 <div class="menu-item">
   <a href="./research.html" class="current">Research Topics</a>
 </div>
+
 
 <div class="menu-category">Publications</div>
 <br />
@@ -94,6 +151,8 @@
 
 <td id="layout-content">
 
+<div id="research-content">
+
 <div id="toptitle">
 <h1>Research Topics</h1>
 </div>
@@ -114,7 +173,8 @@ themes.
 
 <h2>Research Areas</h2>
 
-<ul>
+<ul class="topic-list">
+
 <li>
   <a href="#iml">Information-Theoretic Foundations of Machine Learning</a>
 </li>
@@ -134,8 +194,11 @@ themes.
 <li>
   <a href="#earlier">Selected Earlier Research Directions</a>
 </li>
+
 </ul>
 
+
+<div class="research-section first-section">
 
 <h2 id="iml">Information-Theoretic Foundations of Machine Learning</h2>
 
@@ -155,35 +218,35 @@ semi-supervised learning, and information-theoretic generalization.
 
 <h3>Representative Papers</h3>
 
-<ul>
+<ul class="paper-list">
 
 <li>
   <b>How Many Different Outputs Can a Transformer Generate?</b>
-  (ICML 2026, Oral Presentation)
+  <span class="paper-meta">ICML 2026, Oral Presentation</span>
 </li>
 
 <li>
   <b>On the Exponential Convergence for Offline RLHF with Pairwise
   Comparisons</b>
-  (AAAI 2026, Oral Presentation)
+  <span class="paper-meta">AAAI 2026, Oral Presentation</span>
 </li>
 
 <li>
   <b>Towards Understanding Why FixMatch Generalizes Better Than
   Supervised Learning</b>
-  (ICLR 2025, Oral Presentation)
+  <span class="paper-meta">ICLR 2025, Oral Presentation</span>
 </li>
 
 <li>
   <b>Error Analyses of Auto-Regressive Video Diffusion Models:
   A Unified Framework</b>
-  (JMLR 2026)
+  <span class="paper-meta">Journal of Machine Learning Research, 2026</span>
 </li>
 
 <li>
   <b>How Does Pseudo-Labeling Affect the Generalization Error of the
   Semi-Supervised Gibbs Algorithm?</b>
-  (AISTATS 2023)
+  <span class="paper-meta">AISTATS 2023</span>
 </li>
 
 </ul>
@@ -197,6 +260,10 @@ and
 for related work.
 </p>
 
+</div>
+
+
+<div class="research-section">
 
 <h2 id="sdm">Reinforcement Learning and Sequential Decision Making</h2>
 
@@ -216,34 +283,34 @@ privacy, safety, or robustness constraints.
 
 <h3>Representative Papers</h3>
 
-<ul>
+<ul class="paper-list">
 
 <li>
   <b>Best Arm Identification with Minimal Regret</b>
-  (JMLR 2026)
+  <span class="paper-meta">Journal of Machine Learning Research, 2026</span>
 </li>
 
 <li>
   <b>Asymptotically and Minimax Optimal Regret Bounds for Multi-Armed
   Bandits with Abstention</b>
-  (TMLR 2026)
+  <span class="paper-meta">Transactions on Machine Learning Research, 2026</span>
 </li>
 
 <li>
   <b>Finite-Time Minimax Bounds and an Optimal Lyapunov Policy in
   Queueing Control</b>
-  (Operations Research 2026)
+  <span class="paper-meta">Operations Research, 2026</span>
 </li>
 
 <li>
   <b>Minimax Optimal Fixed-Budget Best Arm Identification in Linear
   Bandits</b>
-  (NeurIPS 2022)
+  <span class="paper-meta">NeurIPS 2022</span>
 </li>
 
 <li>
   <b>Probably Anytime-Safe Stochastic Combinatorial Semi-Bandits</b>
-  (ICML 2023)
+  <span class="paper-meta">ICML 2023</span>
 </li>
 
 </ul>
@@ -256,6 +323,10 @@ and
 for related work.
 </p>
 
+</div>
+
+
+<div class="research-section">
 
 <h2 id="it">Information Theory</h2>
 
@@ -275,34 +346,40 @@ communication, and strong converse theorems.
 
 <h3>Representative Papers and Monographs</h3>
 
-<ul>
+<ul class="paper-list">
 
 <li>
   <b>Common Information, Noise Stability, and Their Extensions</b>
-  (Foundations and Trends in Communications and Information Theory, 2022)
+  <span class="paper-meta">
+    Foundations and Trends in Communications and Information Theory, 2022
+  </span>
 </li>
 
 <li>
   <b>Asymptotic Estimates in Information Theory with Non-Vanishing
   Error Probabilities</b>
-  (Foundations and Trends in Communications and Information Theory, 2014)
+  <span class="paper-meta">
+    Foundations and Trends in Communications and Information Theory, 2014
+  </span>
 </li>
 
 <li>
   <b>Optimal Adaptive Strategies for Sequential Quantum Hypothesis
   Testing</b>
-  (Communications in Mathematical Physics, 2022)
+  <span class="paper-meta">Communications in Mathematical Physics, 2022</span>
 </li>
 
 <li>
   <b>Second-Order Asymptotics of Sequential Hypothesis Testing</b>
-  (IEEE Transactions on Information Theory, 2020)
+  <span class="paper-meta">IEEE Transactions on Information Theory, 2020</span>
 </li>
 
 <li>
   <b>Time-Division is Optimal for Covert Communication over Some
   Broadcast Channels</b>
-  (IEEE Transactions on Information Forensics and Security, 2019)
+  <span class="paper-meta">
+    IEEE Transactions on Information Forensics and Security, 2019
+  </span>
 </li>
 
 </ul>
@@ -316,6 +393,10 @@ and
 for related work.
 </p>
 
+</div>
+
+
+<div class="research-section">
 
 <h2 id="opt">Optimization for Learning</h2>
 
@@ -335,34 +416,34 @@ optimization dynamics of modern neural networks.
 
 <h3>Representative Papers</h3>
 
-<ul>
+<ul class="paper-list">
 
 <li>
   <b>Dynamic Regret in Outlier-Oblivious Online Optimization Using
   Nonconvex Robust Losses</b>
-  (UAI 2026)
+  <span class="paper-meta">UAI 2026</span>
 </li>
 
 <li>
   <b>Muon Outperforms Adam in Tail-End Associative Memory Learning</b>
-  (ICLR 2026)
+  <span class="paper-meta">ICLR 2026</span>
 </li>
 
 <li>
   <b>Sharpness-Aware Training for Free</b>
-  (NeurIPS 2022)
+  <span class="paper-meta">NeurIPS 2022</span>
 </li>
 
 <li>
   <b>Efficient Sharpness-Aware Minimization for Improved Training of
   Neural Networks</b>
-  (ICLR 2022)
+  <span class="paper-meta">ICLR 2022</span>
 </li>
 
 <li>
   <b>Stochastic L-BFGS Revisited: Improved Convergence Rates and
   Practical Acceleration Strategies</b>
-  (IEEE Transactions on Signal Processing, 2018)
+  <span class="paper-meta">IEEE Transactions on Signal Processing, 2018</span>
 </li>
 
 </ul>
@@ -375,6 +456,10 @@ and
 for related work.
 </p>
 
+</div>
+
+
+<div class="research-section">
 
 <h2 id="earlier">Selected Earlier Research Directions</h2>
 
@@ -388,23 +473,23 @@ methods for extracting structure from complex data.
 
 <h3>Statistical Signal Processing and Matrix Factorization</h3>
 
-<ul>
+<ul class="paper-list">
 
 <li>
   <b>Distributionally Robust and Multi-Objective Nonnegative Matrix
   Factorization</b>
-  (IEEE TPAMI, 2022)
+  <span class="paper-meta">IEEE TPAMI, 2022</span>
 </li>
 
 <li>
   <b>Automatic Relevance Determination in Nonnegative Matrix
   Factorization with the &beta;-Divergence</b>
-  (IEEE TPAMI, 2013)
+  <span class="paper-meta">IEEE TPAMI, 2013</span>
 </li>
 
 <li>
   <b>Online Nonnegative Matrix Factorization with Outliers</b>
-  (IEEE Transactions on Signal Processing, 2017)
+  <span class="paper-meta">IEEE Transactions on Signal Processing, 2017</span>
 </li>
 
 </ul>
@@ -412,27 +497,31 @@ methods for extracting structure from complex data.
 
 <h3>Graphical Models and Structure Learning</h3>
 
-<ul>
+<ul class="paper-list">
 
 <li>
   <b>Learning Latent Tree Graphical Models</b>
-  (JMLR 2011)
+  <span class="paper-meta">Journal of Machine Learning Research, 2011</span>
 </li>
 
 <li>
   <b>High-Dimensional Structure Estimation of Ising Models:
   Local Separation Criterion</b>
-  (Annals of Statistics, 2012)
+  <span class="paper-meta">Annals of Statistics, 2012</span>
 </li>
 
 <li>
   <b>High-Dimensional Gaussian Graphical Model Selection:
   Walk Summability and Local Separation Criterion</b>
-  (JMLR 2012)
+  <span class="paper-meta">Journal of Machine Learning Research, 2012</span>
 </li>
 
 </ul>
 
+</div>
+
+
+<div class="research-section">
 
 <h2>Research Philosophy</h2>
 
@@ -445,6 +534,10 @@ characterization of this limit and develop algorithms that approach it
 while remaining statistically and computationally efficient.
 </p>
 
+</div>
+
+
+<div class="research-section">
 
 <h2>Current Directions and Open Problems</h2>
 
@@ -452,7 +545,7 @@ while remaining statistically and computationally efficient.
 Some broad questions currently motivating my group include:
 </p>
 
-<ul>
+<ul class="topic-list">
 
 <li>
 How can information theory help explain the capabilities and limitations
@@ -489,10 +582,14 @@ and
 <a href="./grant.html">current research projects</a>.
 </p>
 
+</div>
+
 
 <div id="footer">
 <div id="footer-text">
 </div>
+</div>
+
 </div>
 
 </td>
