@@ -322,23 +322,130 @@ Open to all NUS students.
 
 </ul>
 
-<h2>Research at a Glance</h2>
+<h2>Selected Publications</h2>
 
-<div style="margin:18px 0 24px 0;">
-  <a href="./research.html">
-    <img src="./research_overview.png"
-         alt="Overview of my research programme"
-         style="width:75%;
-                max-width:800px;
-                min-width:320px;
-                height:auto;" />
-  </a>
+<div id="publication-explorer">
+  <p class="pub-explorer-intro">
+    Explore selected journal papers, conference papers, and monographs by research theme,
+    or view a shorter list of highlights. For an overview of my research programme,
+    see my <a href="./research.html">Research Topics</a> page.
+  </p>
+
+  <div class="pub-explorer-bar">
+    <div class="pub-tab-buttons" role="tablist" aria-label="Publication display">
+      <button type="button" class="pub-tab" id="pub-map-tab" role="tab"
+              aria-controls="pub-map-panel" aria-selected="true">Map</button>
+      <button type="button" class="pub-tab" id="pub-list-tab" role="tab"
+              aria-controls="pub-list-panel" aria-selected="false">List</button>
+    </div>
+    <label class="pub-type-picker" for="pub-type-filter">
+      Show
+      <select id="pub-type-filter">
+        <option value="all">All publication types</option>
+        <option value="journal">Journal papers</option>
+        <option value="conference">Conference papers</option>
+        <option value="monograph">Monographs</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="pub-map-panel" role="tabpanel" aria-labelledby="pub-map-tab">
+    <div class="pub-legend">
+      <span class="pub-legend-item"><span class="pub-color-dot journal"></span>Journal</span>
+      <span class="pub-legend-item"><span class="pub-color-dot conference"></span>Conference</span>
+      <span class="pub-legend-item"><span class="pub-color-dot monograph"></span>Monograph</span>
+      <span class="pub-count" id="pub-visible-count"></span>
+    </div>
+    <div class="pub-map-frame">
+      <svg id="publication-map" xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 960 405" role="group"
+           aria-label="Interactive map of selected papers across six research themes">
+        <title>Research publication map</title>
+        <desc>Each dot represents a paper. Hover, click, or use the keyboard to read its details below.</desc>
+      </svg>
+    </div>
+    <p class="pub-map-caption">
+      Hover over a dot (or tap it) to see the paper and its links. Clusters are curated by topic;
+      distances are illustrative, not a quantitative similarity measure.
+      On smaller screens, the clusters rearrange into two columns.
+    </p>
+    <div class="pub-detail" id="pub-detail" aria-live="polite">
+      Select a paper from the map to see its details.
+    </div>
+  </div>
+
+  <div id="pub-list-panel" role="tabpanel" aria-labelledby="pub-list-tab" hidden="hidden">
+    <p class="pub-list-caption">A compact list of ten homepage highlights.</p>
+<h3>Recent</h3>
+
+<div class="selected-pub">
+<a href="https://openreview.net/forum?id=48e13H6fg5#">On Minimizing Regret in Fixed-Confidence &epsilon;-Best Arm Identification</a>
+<br><span class="pub-venue">NeurIPS 2026</span>
 </div>
 
-<p style="margin-top:-10px;">
-An overview of my current research programme.  <a href="./research.html">Learn more about my research</a>.
-</p>	
-	
+<div class="selected-pub">
+<a href="https://openreview.net/forum?id=lMIsAO6npD#">Asymptotically Optimal Best Arm Identification with Fixed-Budget under Differential Privacy</a>
+<br><span class="pub-venue">NeurIPS 2026</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://arxiv.org/abs/2610.06213">Sampling Allocation of LinUCB: Optimal Design Limits in the Small-Gap Regime</a>
+<br><span class="pub-venue">ACM SIGMETRICS 2027</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://pubsonline.informs.org/doi/10.1287/opre.2025.2528">Finite-Time Minimax Bounds and an Optimal Lyapunov Policy in Queueing Control</a>
+[<a href="./papers/Minimax_Queueing_poster.pdf">Poster</a>]
+<br><span class="pub-venue">Operations Research 2026+</span>
+<span class="pub-note"> &middot; Outstanding Poster Prize</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://openreview.net/forum?id=x4xOtzoYa6">How Many Different Outputs Can a Transformer Generate?</a>
+<br><span class="pub-venue">ICML 2026</span>
+<span class="pub-note"> &middot; Oral Presentation</span>
+</div>	
+
+<h3>Earlier Highlights</h3>
+
+<div class="selected-pub">
+<a href="https://www.nowpublishers.com/article/Details/CIT-122">Common Information, Noise Stability, and Their Extensions</a>
+<br><span class="pub-venue">Foundations and Trends&reg; in Communications and Information Theory, 2022</span>
+</div>
+
+<div class="selected-pub">
+<a href="http://www.nowpublishers.com/articles/foundations-and-trends-in-communications-and-information-theory/CIT-086">Asymptotic Estimates in Information Theory with Non-Vanishing Error Probabilities</a>
+<br><span class="pub-venue">Foundations and Trends&reg; in Communications and Information Theory, 2014</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://ieeexplore.ieee.org/document/8513890">Time-Division is Optimal for Covert Communication over Some Broadcast Channels</a>
+[<a href="./papers/covert_talk_itw.pdf">Slides</a>]
+<br><span class="pub-venue">IEEE Transactions on Information Forensics and Security, 2019</span>
+</div>
+
+<div class="selected-pub">
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6341758">Automatic Relevance Determination in Nonnegative Matrix Factorization with the &beta;-Divergence</a>
+[<a href="./papers/talk_workshop_nips.pdf">Slides</a>]
+[<a href="./papers/ard_nmf_code.zip">Code</a>]
+<br><span class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence, 2013</span>
+</div>
+
+<div class="selected-pub">
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5714274">A Large-Deviation Analysis of the Maximum-Likelihood Learning of Markov Tree Structures</a>
+[<a href="./papers/isit_talk.pdf">Slides</a>]
+<br><span class="pub-venue">IEEE Transactions on Information Theory, 2011</span>
+</div>
+  </div>
+
+  <p class="pub-bottom-links">
+    Complete lists:
+    <a href="./journal.html">Journal Papers</a> &middot;
+    <a href="./csconf.html">CS Conference Papers</a> &middot;
+    <a href="./monograph.html">Monographs</a>
+  </p>
+</div>
+
 <h2>News (<a href="./news.html">Archive</a>)</h2>
 
 <br>	
@@ -505,128 +612,6 @@ Online Decision Making, Multi-Armed Bandits, Reinforcement Learning <br> Informa
   contact me to check with me if there are available positions. Please see this <a href="https://www.itsoc.org/jobs/multiple-postdoctoral-openings-national-university-singapore">advertisement</a> as well as <a href="http://signalprocessingsociety.org/professional-development/jobs-signal-processing/postdoctoral-positions-national-university-singapore">this</a>.  </i>
 </p> -->  
   
-
-<h2>Selected Publications</h2>
-
-<div id="publication-explorer">
-  <p class="pub-explorer-intro">
-    Explore selected journal papers, conference papers, and monographs by research theme,
-    or view a shorter list of highlights.
-  </p>
-
-  <div class="pub-explorer-bar">
-    <div class="pub-tab-buttons" role="tablist" aria-label="Publication display">
-      <button type="button" class="pub-tab" id="pub-map-tab" role="tab"
-              aria-controls="pub-map-panel" aria-selected="true">Map</button>
-      <button type="button" class="pub-tab" id="pub-list-tab" role="tab"
-              aria-controls="pub-list-panel" aria-selected="false">List</button>
-    </div>
-    <label class="pub-type-picker" for="pub-type-filter">
-      Show
-      <select id="pub-type-filter">
-        <option value="all">All publication types</option>
-        <option value="journal">Journal papers</option>
-        <option value="conference">Conference papers</option>
-        <option value="monograph">Monographs</option>
-      </select>
-    </label>
-  </div>
-
-  <div id="pub-map-panel" role="tabpanel" aria-labelledby="pub-map-tab">
-    <div class="pub-legend">
-      <span class="pub-legend-item"><span class="pub-color-dot journal"></span>Journal</span>
-      <span class="pub-legend-item"><span class="pub-color-dot conference"></span>Conference</span>
-      <span class="pub-legend-item"><span class="pub-color-dot monograph"></span>Monograph</span>
-      <span class="pub-count" id="pub-visible-count"></span>
-    </div>
-    <div class="pub-map-frame">
-      <svg id="publication-map" xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 960 405" role="group"
-           aria-label="Interactive map of selected papers across six research themes">
-        <title>Research publication map</title>
-        <desc>Each dot represents a paper. Hover, click, or use the keyboard to read its details below.</desc>
-      </svg>
-    </div>
-    <p class="pub-map-caption">
-      Hover over a dot (or tap it) to see the paper and its links. 
-    </p>
-    <div class="pub-detail" id="pub-detail" aria-live="polite">
-      Select a paper from the map to see its details.
-    </div>
-  </div>
-
-  <div id="pub-list-panel" role="tabpanel" aria-labelledby="pub-list-tab" hidden="hidden">
-    <p class="pub-list-caption">A compact list of ten homepage highlights.</p>
-<h3>Recent</h3>
-
-<div class="selected-pub">
-<a href="https://openreview.net/forum?id=48e13H6fg5#">On Minimizing Regret in Fixed-Confidence &epsilon;-Best Arm Identification</a>
-<br><span class="pub-venue">NeurIPS 2026</span>
-</div>
-
-<div class="selected-pub">
-<a href="https://openreview.net/forum?id=lMIsAO6npD#">Asymptotically Optimal Best Arm Identification with Fixed-Budget under Differential Privacy</a>
-<br><span class="pub-venue">NeurIPS 2026</span>
-</div>
-
-<div class="selected-pub">
-<a href="https://arxiv.org/abs/2610.06213">Sampling Allocation of LinUCB: Optimal Design Limits in the Small-Gap Regime</a>
-<br><span class="pub-venue">ACM SIGMETRICS 2027</span>
-</div>
-
-<div class="selected-pub">
-<a href="https://pubsonline.informs.org/doi/10.1287/opre.2025.2528">Finite-Time Minimax Bounds and an Optimal Lyapunov Policy in Queueing Control</a>
-[<a href="./papers/Minimax_Queueing_poster.pdf">Poster</a>]
-<br><span class="pub-venue">Operations Research 2026+</span>
-<span class="pub-note"> &middot; Outstanding Poster Prize</span>
-</div>
-
-<div class="selected-pub">
-<a href="https://openreview.net/forum?id=x4xOtzoYa6">How Many Different Outputs Can a Transformer Generate?</a>
-<br><span class="pub-venue">ICML 2026</span>
-<span class="pub-note"> &middot; Oral Presentation</span>
-</div>	
-
-<h3>Earlier Highlights</h3>
-
-<div class="selected-pub">
-<a href="https://www.nowpublishers.com/article/Details/CIT-122">Common Information, Noise Stability, and Their Extensions</a>
-<br><span class="pub-venue">Foundations and Trends&reg; in Communications and Information Theory, 2022</span>
-</div>
-
-<div class="selected-pub">
-<a href="http://www.nowpublishers.com/articles/foundations-and-trends-in-communications-and-information-theory/CIT-086">Asymptotic Estimates in Information Theory with Non-Vanishing Error Probabilities</a>
-<br><span class="pub-venue">Foundations and Trends&reg; in Communications and Information Theory, 2014</span>
-</div>
-
-<div class="selected-pub">
-<a href="https://ieeexplore.ieee.org/document/8513890">Time-Division is Optimal for Covert Communication over Some Broadcast Channels</a>
-[<a href="./papers/covert_talk_itw.pdf">Slides</a>]
-<br><span class="pub-venue">IEEE Transactions on Information Forensics and Security, 2019</span>
-</div>
-
-<div class="selected-pub">
-<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6341758">Automatic Relevance Determination in Nonnegative Matrix Factorization with the &beta;-Divergence</a>
-[<a href="./papers/talk_workshop_nips.pdf">Slides</a>]
-[<a href="./papers/ard_nmf_code.zip">Code</a>]
-<br><span class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence, 2013</span>
-</div>
-
-<div class="selected-pub">
-<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5714274">A Large-Deviation Analysis of the Maximum-Likelihood Learning of Markov Tree Structures</a>
-[<a href="./papers/isit_talk.pdf">Slides</a>]
-<br><span class="pub-venue">IEEE Transactions on Information Theory, 2011</span>
-</div>
-  </div>
-
-  <p class="pub-bottom-links">
-    Complete lists:
-    <a href="./journal.html">Journal Papers</a> &middot;
-    <a href="./csconf.html">CS Conference Papers</a> &middot;
-    <a href="./monograph.html">Monographs</a>
-  </p>
-</div>
-
 
 <script type="text/javascript">
 //<![CDATA[
@@ -1544,7 +1529,7 @@ Online Decision Making, Multi-Armed Bandits, Reinforcement Learning <br> Informa
     "id": "graph",
     "label": [
       "Graphical models",
-      "& matrix factorization"
+      "& factorization"
     ],
     "x": 160,
     "y": 293
