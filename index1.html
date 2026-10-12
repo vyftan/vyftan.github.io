@@ -544,11 +544,11 @@ Online Decision Making, Multi-Armed Bandits, Reinforcement Learning <br> Informa
            viewBox="0 0 960 405" role="group"
            aria-label="Interactive map of selected papers across six research themes">
         <title>Research publication map</title>
-        <desc>Each dot represents a paper. Click or use the keyboard to read its details below.</desc>
+        <desc>Each dot represents a paper. Hover, click, or use the keyboard to read its details below.</desc>
       </svg>
     </div>
     <p class="pub-map-caption">
-      Select a dot to see the paper and its links. Clusters are curated by topic;
+      Hover over a dot (or tap it) to see the paper and its links. Clusters are curated by topic;
       distances are illustrative, not a quantitative similarity measure.
       On smaller screens, the clusters rearrange into two columns.
     </p>
@@ -1680,14 +1680,29 @@ Online Decision Making, Multi-Armed Bandits, Reinforcement Learning <br> Informa
           x = cx + radius * Math.cos(a);
           y = cy + radius * 0.87 * Math.sin(a);
         }
+        // A slightly larger transparent hit target makes the dot easy to
+        // hover without changing its visible size or crowding the map.
+        var marker = svgElement("g", {class:"pub-marker"}, svg);
+        svgElement("title", {}, marker).textContent = p.title + " (" + p.year + ")";
         var dot = svgElement("circle", {
           cx:x, cy:y, r:7.9, fill:colors[p.type],
           class:"pub-dot", tabindex:"0", role:"button",
           "aria-label":p.title + ", " + p.year,
           "aria-pressed":String(p.id === activeId)
-        }, svg);
-        svgElement("title", {}, dot).textContent = p.title + " (" + p.year + ")";
-        dot.addEventListener("click", function () { showPaper(p); });
+        }, marker);
+        svgElement("circle", {
+          cx:x, cy:y, r:11.25, fill:"transparent", stroke:"none",
+          "pointer-events":"all", "aria-hidden":"true"
+        }, marker);
+        function activatePaper() {
+          if (activeId !== p.id) showPaper(p);
+        }
+        // Hover updates details immediately; no click is needed on desktop.
+        marker.addEventListener("mouseenter", activatePaper);
+        // Keep clicking and tapping working on touch screens.
+        marker.addEventListener("click", function () { showPaper(p); });
+        // Keyboard users see the paper as soon as a dot receives focus.
+        dot.addEventListener("focus", activatePaper);
         dot.addEventListener("keydown", function (ev) {
           if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); showPaper(p); }
         });
