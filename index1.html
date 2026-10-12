@@ -1,0 +1,1397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./jemdoc.css" type="text/css">
+<style>
+#home-content {
+  width: 100%;
+  max-width: 1050px;
+}
+
+.selected-pub {
+  margin: 0 0 0.75em 0;
+  max-width: 950px;
+}
+
+.pub-venue {
+  color: #333;
+}
+
+.pub-note {
+  color: #777;
+  font-size: 95%;
+}
+
+
+/* Homepage publication explorer — self-contained and scoped. */
+#publication-explorer {
+  max-width: 970px;
+  margin: 0.85em 0 1.8em;
+  font-family: inherit;
+}
+#publication-explorer .pub-explorer-intro {
+  margin: 0 0 1em;
+  color: #444;
+  line-height: 1.35;
+}
+#publication-explorer .pub-explorer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 0.9em;
+}
+#publication-explorer .pub-tab-buttons {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+#publication-explorer .pub-tab {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid #bdc7d4;
+  border-radius: 18px;
+  background: #fff;
+  color: #4a5260;
+  padding: 6px 18px;
+  font-family: inherit;
+  font-size: 100%;
+}
+#publication-explorer .pub-tab[aria-selected="true"] {
+  background: #eff5fe;
+  border-color: #527bbd;
+  color: #3265ae;
+  font-weight: bold;
+}
+#publication-explorer .pub-tab:focus-visible,
+#publication-explorer select:focus-visible,
+#publication-explorer .pub-dot:focus {
+  outline: 2px solid #2456a5;
+  outline-offset: 3px;
+}
+#publication-explorer .pub-type-picker {
+  color: #555;
+  font-size: 91%;
+}
+#publication-explorer .pub-type-picker select {
+  margin-left: 5px;
+  padding: 5px 7px;
+  font-family: inherit;
+  color: #333;
+  background: #fff;
+  border: 1px solid #bec7d1;
+  border-radius: 5px;
+}
+#publication-explorer .pub-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 19px;
+  align-items: center;
+  padding: 0.15em 0 0.55em;
+  color: #555;
+  font-size: 91%;
+}
+#publication-explorer .pub-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+#publication-explorer .pub-color-dot {
+  display: inline-block;
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+}
+#publication-explorer .pub-color-dot.journal { background: #407ec3; }
+#publication-explorer .pub-color-dot.conference { background: #ec7b52; }
+#publication-explorer .pub-color-dot.monograph { background: #8a6bb6; }
+#publication-explorer .pub-count { margin-left: auto; color: #666; }
+#publication-explorer .pub-map-frame {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  border: 1px solid #e0e5eb;
+  border-radius: 8px;
+  background: #fff;
+}
+#publication-explorer #publication-map {
+  display: block;
+  width: 100%;
+  min-width: 670px;
+  height: auto;
+}
+#publication-explorer .pub-cluster-area {
+  fill: #f8fafd;
+  stroke: #e2e9f2;
+  stroke-width: 1;
+}
+#publication-explorer .pub-cluster-label {
+  font: bold 17px Georgia, 'Times New Roman', serif;
+  fill: #455365;
+  text-anchor: middle;
+}
+#publication-explorer .pub-cluster-count {
+  font: 13px Georgia, 'Times New Roman', serif;
+  fill: #798490;
+  text-anchor: middle;
+}
+#publication-explorer .pub-dot {
+  stroke: white;
+  stroke-width: 1.8;
+  cursor: pointer;
+  transition: opacity 0.15s, stroke-width 0.15s;
+}
+#publication-explorer .pub-dot:hover,
+#publication-explorer .pub-dot.active {
+  stroke: #243d61;
+  stroke-width: 3;
+}
+#publication-explorer .pub-map-caption {
+  color: #68727e;
+  font-size: 87%;
+  margin: 0.55em 0 0.9em;
+}
+#publication-explorer .pub-detail {
+  border-top: 1px solid #e1e6eb;
+  padding: 0.95em 0 0.25em;
+  max-width: 900px;
+  min-height: 5.5em;
+}
+#publication-explorer .pub-detail-kicker {
+  color: #607083;
+  font-size: 85%;
+  margin-bottom: 0.3em;
+}
+#publication-explorer .pub-detail-title {
+  font-size: 112%;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0 0 0.3em;
+}
+#publication-explorer .pub-detail-authors,
+#publication-explorer .pub-detail-venue {
+  color: #404852;
+  line-height: 1.32;
+  margin: 0.2em 0;
+}
+#publication-explorer .pub-detail-links { margin: 0.65em 0 0; }
+#publication-explorer .pub-detail-links a { margin-right: 15px; }
+#publication-explorer .pub-detail-award {
+  color: #77522a;
+  font-size: 92%;
+  margin-top: 0.4em;
+}
+#publication-explorer #pub-list-panel h3 {
+  margin-top: 1em;
+  margin-bottom: 0.65em;
+}
+#publication-explorer .pub-list-caption,
+#publication-explorer .pub-bottom-links {
+  color: #5c6570;
+  font-size: 90%;
+}
+#publication-explorer .pub-bottom-links { margin-top: 1.15em; }
+@media screen and (max-width: 700px) {
+  #publication-explorer .pub-explorer-bar { align-items: flex-start; }
+  #publication-explorer .pub-legend { gap: 7px 12px; }
+  #publication-explorer .pub-count { width: 100%; margin-left: 0; }
+  #publication-explorer #publication-map { min-width: 0; width: 100%; }
+}
+
+</style>
+<title>Vincent Tan</title>
+
+</head>
+ 
+<body>
+<table summary="Table for page layout." id="tlayout">
+<tbody><tr valign="top">
+<td id="layout-menu">
+<div class="menu-category">Vincent Y. F. Tan </div>
+<br>
+<div class="menu-item"><a href="./index.html" class="current">Home</a></div>
+<br>
+<div class="menu-item"><a href="./bio.html">Biography</a></div>
+<br>
+<div class="menu-item"><a href="./teaching.html">Teaching</a></div>
+<br>
+<div class="menu-item"><a href="./news.html">News Archive</a></div>
+ 
+<div class="menu-category">Research</div>
+<br>
+<div class="menu-item"><a href="./grant.html">Research Grants</a></div>
+<br>
+<div class="menu-item"><a href="./group.html">Research Group</a></div>
+<br>
+<div class="menu-item"><a href="./research.html">Research Topics</a></div>
+ 
+<div class= "menu-category">Publications</div>
+<br>
+<div class="menu-item"><a href="./preprint.html">Preprints</a></div>
+<br>
+<div class="menu-item"><a href="./monograph.html">Monographs</a></div>
+<br>
+<div class="menu-item"><a href="./csconf.html">CS Conference Papers</a></div>
+<br>
+<div class="menu-item"><a href="./journal.html">Journal Papers</a></div>
+<br>
+<div class="menu-item"><a href="./conf.html">Conference Papers</a></div>
+<br>
+<div class="menu-item"><a href="./thesis.html">Theses</a></div>
+<br>
+</td>
+
+ 
+<td id="layout-content">
+<div id="home-content">
+
+<div id="toptitle">
+  <h1>
+    Vincent Y. F. Tan 陈延福
+    <span style="font-size:60%; font-weight:normal; color:#666;">
+      (he/him • 他)
+    </span>
+  </h1>
+</div>
+ 
+<table class="imgtable">
+ <tbody>
+   <tr>
+ <td>
+<img class="img-responsive" onMouseOver="this.src='./vtan7.png';" onMouseOut="this.src='./vtan7.png';" src="./vtan8.png" width = "251px" height = "335px" /> 
+<p id="text"><font size="-1"></font></p>      
+      </td>
+	        <td align="left"> 
+<p>
+  <strong>Professor</strong><br />
+
+  <a href="https://www.math.nus.edu.sg/">Department of Mathematics</a> & <br />
+  <a href="https://www.ece.nus.edu.sg/">Department of Electrical and Computer Engineering (ECE)</a><br />
+
+  <a href="http://www.nus.edu.sg/">National University of Singapore (NUS)</a><br /><br />
+
+  <a href="https://www.nrf.gov.sg/grants/nrfi/">NRF Investigator</a><br />
+
+  <a href="https://www.math.nus.edu.sg/pg/">
+    Deputy Head (Graduate Programmes)
+  </a>
+</p>
+
+<p>
+  <strong>Affiliations</strong><br />
+  <a href="http://iora.nus.edu.sg/aboutus/members.html">IORA</a>,
+  <a href="http://ids.nus.edu.sg/">IDS</a>,
+  <a href="https://nusgs.nus.edu.sg/thesis-advisors/eletyfv?ta_from=list&ta_list=%2Fthesis-advisors%2F">ISEP</a>
+</p>
+	     
+         <p>Office: S17-05-20 (Mathematics) and E4-06-06 (ECE) 
+          <br />Phone: (65) 6516-2133  
+          <br />Email: vtan @ nus. edu. sg</p>
+	  
+	  <p><a href="./papers/short_cv.pdf">Curriculum Vitae</a>.
+          <br /><a href="https://scholar.google.com/citations?user=dJoAVvAAAAAJ&hl=en">Google Scholar Profile</a>.
+          <br />Erdős number is 3 (Tan -> Willsky -> Bollobás -> Erdős).</p>  
+	
+       </td>
+   </tr>
+ </tbody> 
+</table>
+ 
+<h2>Featured</h2>
+
+<ul>
+
+<li>
+<b>Recruiting Postdoctoral Researchers.</b>
+Applications are invited to join my NRF Investigatorship on information-theoretic foundations of large language models.
+Please see the
+<a href="https://www.itsoc.org/jobs/postdoctoral-positions-reinforcement-learning-and-information-theory-national-university">advertisement</a>
+for more details.
+</li>
+
+<br>
+	
+<li>
+<b>Teaching This Semester.</b>
+<a href="./MA6225.html">Information-Theoretic Methods in Statistical Learning (MA6225)</a>.
+Thursdays, 10:00–13:00, S17-05-11.
+Open to all NUS students.
+</li>
+
+</ul>
+
+<h2>Research at a Glance</h2>
+
+<div style="margin:18px 0 24px 0;">
+  <a href="./research.html">
+    <img src="./research_overview.png"
+         alt="Overview of my research programme"
+         style="width:75%;
+                max-width:800px;
+                min-width:320px;
+                height:auto;" />
+  </a>
+</div>
+
+<p style="margin-top:-10px;">
+An overview of my current research programme.  <a href="./research.html">Learn more about my research</a>.
+</p>	
+	
+<h2>News (<a href="./news.html">Archive</a>)</h2>
+
+<br>	
+<ul>
+
+<li>
+<b>Oct 2026</b>: Three new papers posted on the arXiv:
+
+<ul style="margin-top:6px; margin-bottom:6px;">
+
+<li>
+<a href="https://arxiv.org/abs/2610.06213">Sampling Allocation of LinUCB: Optimal Design Limits in the Small-Gap Regime</a>
+(with <a href="https://scholar.google.com/citations?user=MDqSdmoAAAAJ&hl=en">Yujie Liu</a> and <a href="https://yunbeixu.github.io/">Yunbei Xu</a>), accepted to ACM SIGMETRICS 2027.
+</li>
+
+<li>
+<a href="https://arxiv.org/abs/2610.04600">Asymptotically Optimal Best Arm Identification with Fixed-Budget under Differential Privacy</a>
+(with Keqin Chen, Jie Bian, and <a href="https://yulianwu.github.io/">Yulian Wu</a>), accepted to NeurIPS 2026.
+</li>
+
+<li>
+<a href="https://arxiv.org/abs/2610.05791">On the Tightness of Omura's Strong Converse Exponent and Critical Rates Above Capacity</a>
+(with <a href="https://h-joudeh.github.io/">Hamdi Joudeh</a>).
+</li>
+
+</ul>
+
+</li>
+<br>	
+
+<li>
+<b>Sep 2026</b>: Three papers accepted to NeurIPS 2026, on vision-language models, differentially private bandits, and best-arm identification with regret:
+
+<ul style="margin-top:6px; margin-bottom:6px;">
+
+<li>
+<a href="https://openreview.net/forum?id=i1ipNcYYoM#">SP<sup>2</sup>ec: Adaptive Self-Speculative Decoding for Vision-Language Models</a>
+(with Yuqi Huang, Xingyao Li, <a href="https://y-hou.github.io/">Yunlong Hou</a>, <a href="https://fengzhuozhang.github.io/index.html">Fengzhuo Zhang</a>, and Jiachun Pan).
+</li>
+
+<li>
+<a href="https://openreview.net/forum?id=lMIsAO6npD#">Asymptotically Optimal Best Arm Identification with Fixed-Budget under Differential Privacy</a>
+(with Keqin Chen, Jie Bian, and <a href="https://yulianwu.github.io/">Yulian Wu</a>).
+</li>
+
+<li>
+<a href="https://openreview.net/forum?id=48e13H6fg5#">On Minimizing Regret in Fixed-Confidence &epsilon;-Best Arm Identification</a>
+(with <a href="https://tianyuanjin.github.io/">Tianyuan Jin</a> and Junwen Yang).
+</li>
+
+</ul>
+
+See the <a href="./csconf.html">CS Conference Papers</a> page for more details.
+</li>
+<br>
+
+<li>
+<b>Sep 2026</b>: Posted a preprint "<a href="https://arxiv.org/abs/2609.18013">Second-Order Asymptotics for the Gaussian MAC on the Relative Interior of the Sum-Rate Face</a>" on the arxiv. Comments are very welcome! 
+</li>
+<br>	
+	
+<li>
+<b>Sep 2026</b>: Paper "Sampling Allocation of LinUCB: Optimal Design Limits in the Small-Gap Regime" accepted to SIGMETRICS 2027. Joint work with <a href="https://scholar.google.com/citations?user=MDqSdmoAAAAJ&hl=en">Yujie Liu</a> and <a href="https://yunbeixu.github.io/">Yunbei Xu</a>. 
+</li>
+<br>	
+
+<li>
+<b>Sep 2026</b>: Paper "<a href="https://arxiv.org/abs/2602.05690">Almost Asymptotically Optimal Active Clustering Through Pairwise Observations</a>" accepted by the IEEE Transactions on Information Theory. Joint work with <a href="https://rachtsy.github.io/">Rachel Teo</a>, <a href="https://karthikpn.com/">P. N. Karthik</a> and <a href="https://ramyakv.github.io/">Ramya Vinayak</a>.
+</li>
+<br>	
+
+<li>
+<b>Aug 2026</b>: Welcome <a href="https://qwfish.github.io/myprofile/">Qingwen Zhang</a> as a new Research Fellow to the group. 
+</li>
+<br>			
+
+<li>
+<b>Aug 2026</b>: Posted a preprint "<a href="https://arxiv.org/abs/2608.18231">Second-Order Asymptotics for the Gaussian Multiple-Access Channel at Corner Points</a>" on the arxiv. Comments are very welcome! 
+</li>
+<br>			
+
+<li>
+<b>Aug 2026</b>: Paper "<a href="https://openreview.net/forum?id=A5WZZxglxT">ViDE: Tuning-Free Video Coherence via Temporal Attention Reweighting and Prompt Blending</a>" accepted to the Transactions on Machine Learning Research. Joint work with Xingyao Li, Hao Zhang, Fengzhuo Zhang, Jiachun Pan, Yunlong Hou, and Zhuoran Yang.
+</li>
+<br>		
+
+<li>
+<b>Jul 2026</b>: Heartiest congratulations to research fellow <a href="https://yihang-gao.github.io/">Yihang Gao</a> for being offered a tenure track Assistant Professor position at <a href="https://www.math.hkbu.edu.hk/">Hong Kong Baptist University (HKBU) Math department</a>. 
+</li>
+<br>	
+
+<li>
+<b>Jul 2026</b>: Posted a preprint on the arxiv "<a href="https://arxiv.org/abs/2607.20205">Statistical Inference for Rank Allocation in Low-Rank Adaptation</a>". Joint work with <a href="https://yihang-gao.github.io/">Yihang Gao</a>. 
+</li>
+<br>
+	
+<li>
+<b>Jul 2026</b>: <a href="https://pingli0423.github.io/">Ping Li</a> and <a href="https://canvolcano.github.io/">Canzhe Zhao</a> join the group as Research Fellows. Welcome! 
+</li>
+<br>
+	
+<li>
+<b>Jul 2026</b>: Paper "<a href="https://arxiv.org/abs/2506.18278">Finite-Time Minimax Bounds and an Optimal Lyapunov Policy in Queueing Control</a>" accepted to Operations Research. Joint work with <a href="https://scholar.google.com/citations?user=MDqSdmoAAAAJ&hl=en">Yujie Liu</a> and <a href="https://yunbeixu.github.io/">Yunbei Xu</a>. 
+</li>
+<br>	
+
+<li>
+<b>Jul 2026</b>: Three papers to be presented at the <a href="https://ewrl-org.github.io/ewrl-2026/">19th European Workshop on Reinforcement Learning</a> (EWRL 2026). (i) "<a href="https://www.jmlr.org/papers/v27/24-1612.html">Best Arm Identification with Minimal Regret</a>" (with Junwen Yang and <a href="https://tianyuanjin.github.io/">Tianyuan Jin</a>); (ii) "<a href="https://openreview.net/forum?id=tznbYc1vmo">Reinforcement Learning with Abstention: Interaction-Aware Regret Bounds</a>" (with <a href="https://scholar.google.com/citations?user=5v47GU0AAAAJ&hl=en">Yuan Cheng</a>); (iii) "<a href="https://openreview.net/forum?id=2JxtMzA92R">On the Benefits of Free Exploration for Regret Minimization in Multi-Armed Bandits</a>" (with <a href="https://y-hou.github.io/">Yunlong Hou</a> and <a href="https://zixinzh.github.io/homepage/">Zixin Zhong</a>). 
+</li>
+<br>
+	
+<li>
+<b>Jul 2026</b>: Posted a preprint on the arxiv "<a href="https://arxiv.org/abs/2607.01080">Balancing Expressivity and Learnability in Quantum Kernel Bandit Optimization</a>". Joint work with Ph.D. student Yuqi Huang and collaborator <a href="https://sites.google.com/view/sharutheresajose/home">Sharu Theresa Jose</a>. To be presented at <a href="https://www.auai.org/uai2026/">UAI 2026</a>.
+</li>
+<br>
+	
+<li>
+<b>Jun 2026</b>: Posted a preprint on the arxiv "<a href="https://arxiv.org/abs/2606.29203">Bayesian Best-Arm Identification with Abstention: A Polynomial-to-Exponential Phase Transition</a>". Joint work with Ph.D. student Yuqi Huang and research fellow <a href="https://y-hou.github.io/">Yunlong Hou</a>.
+</li>
+<br>		
+
+<li>
+<b>Jun 2026</b>: Reappointed to the University Promotion and Tenure Committee (UPTC) and the University Teaching Excellence Committee (UTEC). Taking up the role of Deputy Head (Graduate Programmes) in the Department of Mathematics in the new academic year. 
+</li>
+<br>	
+	
+<li>
+<b>Jun 2026</b>: <a href="https://yulianwu.github.io/">Yulian Wu</a> joins the group as a Research Fellow. Welcome! 
+</li>
+<br>	
+	
+<li>
+<b>Jun 2026</b>: Hosted a visit by <a href="https://sites.google.com/view/yuko-kuroki/">Dr. Yuko Kuroki</a>. 
+</li>
+<br>	
+
+<li>
+<b>Jun 2026</b>: Rated 4.8/5.0 and 4.9/5.0 respectively for my teaching of EE5138 Optimization for ECE and EE6138 Optimization for ECE (Advanced) last semester. See some review quotes <a href="https://vyftan.github.io/review_nus.html#ee5138_sp2026">here</a> and <a href="https://vyftan.github.io/review_nus.html#ee6138_sp2026">here</a>. I really enjoyed teaching this course! 
+</li>
+<br>		
+	
+<li>
+<b>Jun 2026</b>: Two papers accepted to UAI 2026: (i) <a href="https://openreview.net/forum?id=NBRDRhnHeB">Balancing Expressivity and Learnability in Quantum Kernel Bandit Optimization</a> (joint work with Ph.D. student Yuqi Huang and collaborator <a href="https://sites.google.com/view/sharutheresajose/home">Sharu Theresa Jose</a>) and (ii) <a href="https://openreview.net/forum?id=NBRDRhnHeB">Dynamic Regret in Outlier-Oblivious Online Optimization using Nonconvex Robust Losses</a> (joint work with former research fellows <a href="https://adarsh-barik.github.io/">Adarsh Barik</a> and <a href="https://anandkrishna.me/">Anand Krishna</a>).
+</li>
+<br>	
+	
+</ul>	
+
+<!--
+<h2>Research Interests</h2>
+  <p>
+Online Decision Making, Multi-Armed Bandits, Reinforcement Learning <br> Information Theory with Applications to Machine Learning <br>  Statistical Signal Processing
+</p>
+ <p>
+<i>I am actively recruiting graduate students in the areas of my research interest above. There are various channels to be
+  admitted to NUS including to the <a href="https://www.science.nus.edu.sg/graduates/msc-by-research/application-information/">Faculty
+  of Science</a>, the <a href="https://cde.nus.edu.sg/graduate/graduate-programmes-by-research/application-period-2/">College of Design and Engineering</a>, the <a href="https://iora.nus.edu.sg/phd-programme/">Institute
+  of Operations Research and Analytics</a>, and the <a href="https://isep.nus.edu.sg/nus-phd-data-science/">Integrative Sciences and Engineering Programme (Institute of Data Science)</a>. </i>
+</p>
+<p>
+<i>There are also multiple positions for talented
+  postdoctoral scholars. Postdoctoral scholars with strong publication records
+  and showing interest in the above research topics are also encouraged to
+  contact me to check with me if there are available positions. Please see this <a href="https://www.itsoc.org/jobs/multiple-postdoctoral-openings-national-university-singapore">advertisement</a> as well as <a href="http://signalprocessingsociety.org/professional-development/jobs-signal-processing/postdoctoral-positions-national-university-singapore">this</a>.  </i>
+</p> -->  
+  
+
+<h2>Selected Publications</h2>
+
+<div id="publication-explorer">
+  <p class="pub-explorer-intro">
+    Explore selected journal papers, conference papers, and monographs by research theme,
+    or view a shorter list of highlights.
+  </p>
+
+  <div class="pub-explorer-bar">
+    <div class="pub-tab-buttons" role="tablist" aria-label="Publication display">
+      <button type="button" class="pub-tab" id="pub-map-tab" role="tab"
+              aria-controls="pub-map-panel" aria-selected="true">Map</button>
+      <button type="button" class="pub-tab" id="pub-list-tab" role="tab"
+              aria-controls="pub-list-panel" aria-selected="false">List</button>
+    </div>
+    <label class="pub-type-picker" for="pub-type-filter">
+      Show
+      <select id="pub-type-filter">
+        <option value="all">All publication types</option>
+        <option value="journal">Journal papers</option>
+        <option value="conference">Conference papers</option>
+        <option value="monograph">Monographs</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="pub-map-panel" role="tabpanel" aria-labelledby="pub-map-tab">
+    <div class="pub-legend">
+      <span class="pub-legend-item"><span class="pub-color-dot journal"></span>Journal</span>
+      <span class="pub-legend-item"><span class="pub-color-dot conference"></span>Conference</span>
+      <span class="pub-legend-item"><span class="pub-color-dot monograph"></span>Monograph</span>
+      <span class="pub-count" id="pub-visible-count"></span>
+    </div>
+    <div class="pub-map-frame">
+      <svg id="publication-map" xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 960 405" role="group"
+           aria-label="Interactive map of selected papers across seven research themes">
+        <title>Research publication map</title>
+        <desc>Each dot represents a paper. Click or use the keyboard to read its details below.</desc>
+      </svg>
+    </div>
+    <p class="pub-map-caption">
+      Select a dot to see the paper and its links. Clusters are curated by topic;
+      distances are illustrative, not a quantitative similarity measure.
+      On smaller screens, swipe horizontally to explore.
+    </p>
+    <div class="pub-detail" id="pub-detail" aria-live="polite">
+      Select a paper from the map to see its details.
+    </div>
+  </div>
+
+  <div id="pub-list-panel" role="tabpanel" aria-labelledby="pub-list-tab" hidden="hidden">
+    <p class="pub-list-caption">A compact list of ten homepage highlights.</p>
+<h3>Recent</h3>
+
+<div class="selected-pub">
+<a href="https://openreview.net/forum?id=48e13H6fg5#">On Minimizing Regret in Fixed-Confidence &epsilon;-Best Arm Identification</a>
+<br><span class="pub-venue">NeurIPS 2026</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://openreview.net/forum?id=lMIsAO6npD#">Asymptotically Optimal Best Arm Identification with Fixed-Budget under Differential Privacy</a>
+<br><span class="pub-venue">NeurIPS 2026</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://arxiv.org/abs/2610.06213">Sampling Allocation of LinUCB: Optimal Design Limits in the Small-Gap Regime</a>
+<br><span class="pub-venue">ACM SIGMETRICS 2027</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://pubsonline.informs.org/doi/10.1287/opre.2025.2528">Finite-Time Minimax Bounds and an Optimal Lyapunov Policy in Queueing Control</a>
+[<a href="./papers/Minimax_Queueing_poster.pdf">Poster</a>]
+<br><span class="pub-venue">Operations Research 2026+</span>
+<span class="pub-note"> &middot; Outstanding Poster Prize</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://openreview.net/forum?id=x4xOtzoYa6">How Many Different Outputs Can a Transformer Generate?</a>
+<br><span class="pub-venue">ICML 2026</span>
+<span class="pub-note"> &middot; Oral Presentation</span>
+</div>	
+
+<h3>Earlier Highlights</h3>
+
+<div class="selected-pub">
+<a href="https://www.nowpublishers.com/article/Details/CIT-122">Common Information, Noise Stability, and Their Extensions</a>
+<br><span class="pub-venue">Foundations and Trends&reg; in Communications and Information Theory, 2022</span>
+</div>
+
+<div class="selected-pub">
+<a href="http://www.nowpublishers.com/articles/foundations-and-trends-in-communications-and-information-theory/CIT-086">Asymptotic Estimates in Information Theory with Non-Vanishing Error Probabilities</a>
+<br><span class="pub-venue">Foundations and Trends&reg; in Communications and Information Theory, 2014</span>
+</div>
+
+<div class="selected-pub">
+<a href="https://ieeexplore.ieee.org/document/8513890">Time-Division is Optimal for Covert Communication over Some Broadcast Channels</a>
+[<a href="./papers/covert_talk_itw.pdf">Slides</a>]
+<br><span class="pub-venue">IEEE Transactions on Information Forensics and Security, 2019</span>
+</div>
+
+<div class="selected-pub">
+<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6341758">Automatic Relevance Determination in Nonnegative Matrix Factorization with the &beta;-Divergence</a>
+[<a href="./papers/talk_workshop_nips.pdf">Slides</a>]
+[<a href="./papers/ard_nmf_code.zip">Code</a>]
+<br><span class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence, 2013</span>
+</div>
+
+<div class="selected-pub">
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5714274">A Large-Deviation Analysis of the Maximum-Likelihood Learning of Markov Tree Structures</a>
+[<a href="./papers/isit_talk.pdf">Slides</a>]
+<br><span class="pub-venue">IEEE Transactions on Information Theory, 2011</span>
+</div>
+  </div>
+
+  <p class="pub-bottom-links">
+    Complete lists:
+    <a href="./journal.html">Journal Papers</a> &middot;
+    <a href="./csconf.html">CS Conference Papers</a> &middot;
+    <a href="./monograph.html">Monographs</a>
+  </p>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+(function () {
+  "use strict";
+  var papers = [
+  {
+    "title": "SP²ec: Adaptive Self-Speculative Decoding for Vision-Language Models",
+    "authors": "Yuqi Huang, Xingyao Li, Yunlong Hou, Fengzhuo Zhang, Jiachun Pan, and Vincent Y. F. Tan",
+    "venue": "NeurIPS 2026 (Sydney, Australia)",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=i1ipNcYYoM",
+    "type": "conference",
+    "theme": "ml",
+    "id": "p1",
+    "supplemental": []
+  },
+  {
+    "title": "How Many Different Outputs Can a Transformer Generate?",
+    "authors": "Maxime Meyer, Mario Michelessa, Caroline Chaux and Vincent Y. F. Tan",
+    "venue": "Proc. of the 43th International Conference on Machine Learning (ICML), Seoul, South Korea, Jul 2026 ( Oral Presentation )",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=x4xOtzoYa6",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "ml",
+    "id": "p2",
+    "award": "Oral presentation"
+  },
+  {
+    "title": "ViDE: Tuning-Free Video Coherence via Temporal Attention Reweighting and Prompt Blending",
+    "authors": "Xingyao Li, Hao Zhang, Fengzhuo Zhang, Jiachun Pan, Yunlong Hou, Vincent Y. F. Tan, and Zhuoran Yang",
+    "venue": "Transactions on Machine Learning Research, 2026+",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=A5WZZxglxT",
+    "type": "journal",
+    "theme": "ml",
+    "id": "p3",
+    "supplemental": []
+  },
+  {
+    "title": "Towards Understanding Why FixMatch Generalizes Better Than Supervised Learning",
+    "authors": "Jingyang Li, Jiachun Pan, Vincent Y. F. Tan , Kim-Chuan Toh, and Pan Zhou",
+    "venue": "Proc. of the 13th International Conference on Learning Representations (ICLR), Singapore, May 2025 ( Oral Presentation , Top 1.8%)",
+    "year": 2025,
+    "url": "https://openreview.net/forum?id=25kAzqzTrz",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "ml",
+    "id": "p4",
+    "award": "Oral presentation"
+  },
+  {
+    "title": "On the Exponential Convergence for Offline RLHF with Pairwise Comparisons",
+    "authors": "Zhirui Chen and Vincent Y. F. Tan",
+    "venue": "Proc. of the 40th AAAI Conference on Artificial Intelligence (AAAI) (Alignment Track), Singapore, Feb 2026 ( Oral Presentation , AR ≈ 22.7%)",
+    "year": 2026,
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/view/41059",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "ml",
+    "id": "p5",
+    "award": "Oral presentation"
+  },
+  {
+    "title": "Information-Theoretic Characterization of the Generalization Error for Iterative Semi-Supervised Learning",
+    "authors": "Haiyun He, Hanshu Yan, and Vincent Y. F. Tan",
+    "venue": "Journal of Machine Learning Research, Vol. 23, No. 287, Pages 1 - 52, 2022",
+    "year": 2022,
+    "url": "https://jmlr.org/papers/v23/22-0541.html",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Code",
+        "url": "https://github.com/HerianHe/GenErrorSSL_2022"
+      }
+    ],
+    "theme": "ml",
+    "id": "p6"
+  },
+  {
+    "title": "Asymptotically Optimal Best Arm Identification with Fixed-Budget under Differential Privacy",
+    "authors": "Keqin Chen, Jie Bian, Yulian Wu, and Vincent Y. F. Tan",
+    "venue": "NeurIPS 2026 (Sydney, Australia)",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=lMIsAO6npD",
+    "type": "conference",
+    "supplemental": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2610.04600"
+      }
+    ],
+    "theme": "bandit",
+    "id": "p7"
+  },
+  {
+    "title": "On Minimizing Regret in Fixed-Confidence ε-Best Arm Identification",
+    "authors": "Tianyuan Jin, Junwen Yang, and Vincent Y. F. Tan",
+    "venue": "NeurIPS 2026 (Sydney, Australia)",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=48e13H6fg5",
+    "type": "conference",
+    "theme": "bandit",
+    "id": "p8",
+    "supplemental": []
+  },
+  {
+    "title": "Sampling Allocation of LinUCB: Optimal Design Limits in the Small-Gap Regime",
+    "authors": "Yujie Liu, Vincent Y. F. Tan, and Yunbei Xu",
+    "venue": "ACM SIGMETRICS 2027 (Atlanta, Georgia, USA)",
+    "year": 2027,
+    "url": "https://arxiv.org/abs/2610.06213",
+    "type": "conference",
+    "theme": "bandit",
+    "id": "p9",
+    "supplemental": []
+  },
+  {
+    "title": "Best Arm Identification with Minimal Regret",
+    "authors": "Junwen Yang, Vincent Y. F. Tan , and Tianyuan Jin",
+    "venue": "Journal of Machine Learning Research, Vol. 27, No. 86, Pages 1 - 41, 2026",
+    "year": 2026,
+    "url": "https://jmlr.org/papers/v27/24-1612.html",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "bandit",
+    "id": "p10"
+  },
+  {
+    "title": "Avoiding exp(k*) Scaling for Thompson Sampling in Combinatorial Semi-Bandits: From Multiple Seeds to a Single Seed",
+    "authors": "Tianyuan Jin, Heyang Zhao, Vincent Y. F. Tan , and Quanquan Gu",
+    "venue": "Proc. of the 39th Annual Conference on Learning Theory (COLT), San Diego, CA, Jun 2026 (AR ≈ 29.5%)",
+    "year": 2026,
+    "url": "https://proceedings.mlr.press/v336/jin26a.html",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "bandit",
+    "id": "p11"
+  },
+  {
+    "title": "Minimax Optimal Fixed-Budget Best Arm Identification in Linear Bandits",
+    "authors": "Junwen Yang and Vincent Y. F. Tan",
+    "venue": "Proc. of the 36th Annual Conference on Neural Information Processing Systems (NeurIPS), New Orleans, USA, Dec 2022 (AR ≈ 25.6%)",
+    "year": 2022,
+    "url": "https://openreview.net/forum?id=PLmNPSKJr8e",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "bandit",
+    "id": "p12"
+  },
+  {
+    "title": "Achieving the Pareto Frontier of Regret Minimization and Best Arm Identification in Multi-Armed Bandits",
+    "authors": "Zixin Zhong, Wang Chi Cheung and Vincent Y. F. Tan",
+    "venue": "Transactions on Machine Learning Research, Sep 2023 (Featured Certification)",
+    "year": 2023,
+    "url": "https://openreview.net/forum?id=XXfEmIMJDm",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "bandit",
+    "id": "p13"
+  },
+  {
+    "title": "Finite-Time Minimax Bounds and an Optimal Lyapunov Policy in Queueing Control",
+    "authors": "Yujie Liu, Vincent Y. F. Tan , and Yunbei Xu",
+    "venue": "Operations Research, 2026+",
+    "year": 2026,
+    "url": "https://pubsonline.informs.org/doi/10.1287/opre.2025.2528",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Poster",
+        "url": "./papers/Minimax_Queueing_poster.pdf"
+      }
+    ],
+    "theme": "sequential",
+    "id": "p14",
+    "award": "Stochastic Networks Conference Outstanding Poster Prize"
+  },
+  {
+    "title": "Parameter-free Algorithms for the Stochastically Extended Adversarial Model",
+    "authors": "Shuche Wang, Adarsh Barik, Peng Zhao, and Vincent Y. F. Tan",
+    "venue": "Proc. of the 39th Annual Conference on Neural Information Processing Systems (NeurIPS), San Diego, CA, Dec 2025 (AR ≈ 24.5%)",
+    "year": 2025,
+    "url": "https://openreview.net/forum?id=LuGevcG5IB&noteId=gQHtnThG7k",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "sequential",
+    "id": "p15"
+  },
+  {
+    "title": "Learning Regularized Graphon Mean-Field Games with Unknown Graphons",
+    "authors": "Fengzhuo Zhang, Vincent Y. F. Tan , Zhaoran Wang, and Zhuoran Yang",
+    "venue": "Journal of Machine Learning Research, Vol. 25, No. 372, Pages 1 - 95, 2024",
+    "year": 2024,
+    "url": "https://jmlr.org/papers/v25/23-1409.html",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "sequential",
+    "id": "p16"
+  },
+  {
+    "title": "Stochastic Bandits for Egalitarian Assignment",
+    "authors": "Eugene Lim, Vincent Y. F. Tan , and Harold Soh",
+    "venue": "Transactions on Machine Learning Research, Oct 2024",
+    "year": 2024,
+    "url": "https://openreview.net/forum?id=kmKVJl2JWo",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "sequential",
+    "id": "p17"
+  },
+  {
+    "title": "A Large-Deviation Analysis of the Maximum-Likelihood Learning of Markov Tree Structures",
+    "authors": "Vincent Y. F. Tan , Animashree Anandkumar, Lang Tong and Alan S. Willsky",
+    "venue": "IEEE Transactions on Information Theory, Vol. 57, No. 3, Pages 1714 - 1735, Mar 2011",
+    "year": 2011,
+    "url": "http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5714274",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Slides",
+        "url": "./papers/isit_talk.pdf"
+      }
+    ],
+    "theme": "graph",
+    "id": "p18"
+  },
+  {
+    "title": "Learning Latent Tree Graphical Models",
+    "authors": "Myung Jin Choi, Vincent Y. F. Tan , Animashree Anandkumar and Alan S. Willsky",
+    "venue": "Journal of Machine Learning Research, Vol. 12, No. 49, Pages 1771 - 1812, 2011",
+    "year": 2011,
+    "url": "http://www.jmlr.org/papers/volume12/choi11b/choi11b.pdf",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Abstract",
+        "url": "http://www.jmlr.org/papers/v12/choi11b.html"
+      },
+      {
+        "label": "Webpage",
+        "url": "http://people.csail.mit.edu/myungjin/latentTree.html"
+      },
+      {
+        "label": "Code",
+        "url": "http://people.csail.mit.edu/myungjin/latentTree.html"
+      },
+      {
+        "label": "Slides",
+        "url": "./papers/latentTree_slides.pdf"
+      }
+    ],
+    "theme": "graph",
+    "id": "p19"
+  },
+  {
+    "title": "High-Dimensional Structure Estimation of Ising Models: Local Separation Criterion",
+    "authors": "Animashree Anandkumar, Vincent Y. F. Tan , Furong Huang and Alan S. Willsky",
+    "venue": "Annals of Statistics, Vol. 40, No. 3, Pages 1346 - 1375, 2012",
+    "year": 2012,
+    "url": "https://projecteuclid.org/journals/annals-of-statistics/volume-40/issue-3/High-dimensional-structure-estimation-in-Ising-models--Local-separation/10.1214/12-AOS1009.full",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "graph",
+    "id": "p20"
+  },
+  {
+    "title": "Automatic Relevance Determination in Nonnegative Matrix Factorization with the β-Divergence",
+    "authors": "Vincent Y. F. Tan and Cédric Févotte",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, Vol. 35, No. 7, Pages 1592 - 1605, Jul 2013",
+    "year": 2013,
+    "url": "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6341758",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Supplementary Material",
+        "url": "./papers/supp_mat.pdf"
+      },
+      {
+        "label": "Poster",
+        "url": "./papers/nips2011_poster.pdf"
+      },
+      {
+        "label": "Slides",
+        "url": "./papers/talk_workshop_nips.pdf"
+      },
+      {
+        "label": "Code",
+        "url": "./papers/ard_nmf_code.zip"
+      }
+    ],
+    "theme": "graph",
+    "id": "p21"
+  },
+  {
+    "title": "Distributionally Robust and Multi-Objective Nonnegative Matrix Factorization",
+    "authors": "Nicolas Gillis, Le Thi Khanh Hien, Valentin Leplat, and Vincent Y. F. Tan",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, Vol. 44, No. 8, Pages 4052 - 4064, Aug 2022",
+    "year": 2022,
+    "url": "https://ieeexplore.ieee.org/document/9353266/",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Slides",
+        "url": "./papers/dr_nmf_talk.pdf"
+      },
+      {
+        "label": "Code",
+        "url": "https://codeocean.com/capsule/8680134/tree/v1"
+      }
+    ],
+    "theme": "graph",
+    "id": "p22"
+  },
+  {
+    "title": "Muon Outperforms Adam in Tail-End Associative Memory Learning",
+    "authors": "Shuche Wang, Fengzhuo Zhang, Jiaxiang Li, Cunxiao Du, Chao Du, Tianyu Pang, Zhuoran Yang, Mingyi Hong, and Vincent Y. F. Tan",
+    "venue": "Proc. of the 14th International Conference on Learning Representations (ICLR), Rio de Janeiro, Brazil, May 2026 (AR ≈ 28%)",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=twbMFL0DMp",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "optimization",
+    "id": "p23"
+  },
+  {
+    "title": "Sharpness-Aware Training for Free",
+    "authors": "Jiawei Du, Daquan Zhou, Jiashi Feng, Vincent Y. F. Tan , and Joey Tianyi Zhou",
+    "venue": "Proc. of the 36th Annual Conference on Neural Information Processing Systems (NeurIPS), New Orleans, USA, Dec 2022 (AR ≈ 25.6%)",
+    "year": 2022,
+    "url": "https://openreview.net/forum?id=xK6wRfL2mv7",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "optimization",
+    "id": "p24"
+  },
+  {
+    "title": "Efficient Sharpness-aware Minimization for Improved Training of Neural Networks",
+    "authors": "Jiawei Du, Hanshu Yan, Jiashi Feng, Joey Tianyi Zhou, Liangli Zhen, Rick Siow Mong Goh, and Vincent Y. F. Tan",
+    "venue": "Proc. of the 10th International Conference on Learning Representations (ICLR), Virtual, Apr 2022 (AR: 1095/3391 ≈ 32.3%)",
+    "year": 2022,
+    "url": "https://openreview.net/forum?id=n0OeTdNRG0Q",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "optimization",
+    "id": "p25"
+  },
+  {
+    "title": "Dynamic Regret in Outlier-Oblivious Online Optimization using Nonconvex Robust Losses",
+    "authors": "Adarsh Barik, Anand Krishna, and Vincent Y. F. Tan",
+    "venue": "Proc. of the 42nd Conference on Uncertainty in Artificial Intelligence (UAI), Amsterdam, Netherlands, Aug 2026 (AR ≈ 30.5%)",
+    "year": 2026,
+    "url": "https://openreview.net/forum?id=uRusqLPRrw",
+    "type": "conference",
+    "supplemental": [],
+    "theme": "optimization",
+    "id": "p26"
+  },
+  {
+    "title": "Analysis of Optimization Algorithms via Sum-of-Squares",
+    "authors": "Sandra S. Y. Tan, Antonios Varvitsiotis, and Vincent Y. F. Tan",
+    "venue": "Journal of Optimization Theory and Applications, Vol. 190, Pages 56 - 81, Jul 2021",
+    "year": 2021,
+    "url": "https://link.springer.com/article/10.1007/s10957-021-01869-0",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Code",
+        "url": "https://github.com/sandratsy/SumsOfSquares/"
+      },
+      {
+        "label": "Slides",
+        "url": "./papers/SOS_slides.pdf"
+      }
+    ],
+    "theme": "optimization",
+    "id": "p27"
+  },
+  {
+    "title": "Asymptotic Estimates in Information Theory with Non-Vanishing Error Probabilities",
+    "authors": "Vincent Y. F. Tan",
+    "venue": "Foundations and Trends® in Communications and Information Theory, Vol. 11, Nos. 1-2, Pages 1 – 184, 2014",
+    "year": 2014,
+    "url": "http://www.nowpublishers.com/articles/foundations-and-trends-in-communications-and-information-theory/CIT-086",
+    "type": "monograph",
+    "supplemental": [],
+    "theme": "coding",
+    "id": "p28"
+  },
+  {
+    "title": "On the Dispersions of Three Network Information Theory Problems",
+    "authors": "Vincent Y. F. Tan and Oliver Kosut",
+    "venue": "IEEE Transactions on Information Theory, Vol. 60, No. 2, Pages 881 - 903, Feb 2014",
+    "year": 2014,
+    "url": "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6665138",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "coding",
+    "id": "p29"
+  },
+  {
+    "title": "The Third-Order Term in the Normal Approximation for the AWGN Channel",
+    "authors": "Vincent Y. F. Tan and Marco Tomamichel",
+    "venue": "IEEE Transactions on Information Theory, Vol. 61, No. 5, Pages 2430 - 2438, May 2015",
+    "year": 2015,
+    "url": "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7056434",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "coding",
+    "id": "p30"
+  },
+  {
+    "title": "Second-Order Asymptotics for the Gaussian MAC with Degraded Message Sets",
+    "authors": "Jonathan Scarlett and Vincent Y. F. Tan",
+    "venue": "IEEE Transactions on Information Theory, Vol. 61, No. 12, Pages 6700 - 6718, Dec 2015",
+    "year": 2015,
+    "url": "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7289421",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Slides",
+        "url": "./papers/sec_order_talk.pdf"
+      }
+    ],
+    "theme": "coding",
+    "id": "p31"
+  },
+  {
+    "title": "Variable-Length Feedback Codes over Known and Unknown Channels with Non-vanishing Error Probabilities",
+    "authors": "Recep Can Yavas and Vincent Y. F. Tan",
+    "venue": "IEEE Transactions on Information Theory, Vol. 71, No. 5, Pages 3271 - 3286, May 2025",
+    "year": 2025,
+    "url": "https://ieeexplore.ieee.org/document/10884858",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "coding",
+    "id": "p32"
+  },
+  {
+    "title": "Common Information, Noise Stability, and Their Extensions",
+    "authors": "Lei Yu and Vincent Y. F. Tan",
+    "venue": "Foundations and Trends® in Communications and Information Theory, Vol. 19, No. 2, Pages 107 - 389, 2022",
+    "year": 2022,
+    "url": "https://www.nowpublishers.com/article/Details/CIT-122",
+    "type": "monograph",
+    "supplemental": [],
+    "theme": "common",
+    "id": "p33"
+  },
+  {
+    "title": "On Exact and ∞-Rényi Common Informations",
+    "authors": "Lei Yu and Vincent Y. F. Tan",
+    "venue": "IEEE Transactions on Information Theory, Vol. 66, No. 6, Pages 3366 - 3406, Jun 2020",
+    "year": 2020,
+    "url": "https://ieeexplore.ieee.org/document/8974249",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Slides",
+        "url": "./papers/ExactCI_slides_iwcit.pdf"
+      }
+    ],
+    "theme": "common",
+    "id": "p34"
+  },
+  {
+    "title": "On Non-Interactive Simulation of Binary Random Variables",
+    "authors": "Lei Yu and Vincent Y. F. Tan",
+    "venue": "IEEE Transactions on Information Theory, Vol. 67, No. 4, Pages 2528 - 2538, Apr 2021",
+    "year": 2021,
+    "url": "https://ieeexplore.ieee.org/document/9336048",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Slides",
+        "url": "./papers/NoninteractiveSimulation_slides_WPI.pdf"
+      }
+    ],
+    "theme": "common",
+    "id": "p35"
+  },
+  {
+    "title": "Optimal Adaptive Strategies for Sequential Quantum Hypothesis Testing",
+    "authors": "Yonglong Li, Vincent Y. F. Tan , and Marco Tomamichel",
+    "venue": "Communications in Mathematical Physics, Vol. 392, Issue 3, 993 - 1027, Jun 2022",
+    "year": 2022,
+    "url": "https://link.springer.com/article/10.1007/s00220-022-04362-5",
+    "type": "journal",
+    "supplemental": [],
+    "theme": "common",
+    "id": "p36"
+  },
+  {
+    "title": "Time-Division is Optimal for Covert Communication over Some Broadcast Channels",
+    "authors": "Vincent Y. F. Tan and Si-Hyeon Lee",
+    "venue": "IEEE Transactions on Information Forensics and Security, Vol. 14, No. 5, Pages 1377 - 1389, May 2019",
+    "year": 2019,
+    "url": "https://ieeexplore.ieee.org/document/8513890",
+    "type": "journal",
+    "supplemental": [
+      {
+        "label": "Slides",
+        "url": "./papers/covert_talk_itw.pdf"
+      }
+    ],
+    "theme": "common",
+    "id": "p37"
+  }
+];
+  var clusters = [
+  {
+    "id": "ml",
+    "label": [
+      "Modern ML &",
+      "language models"
+    ],
+    "x": 160,
+    "y": 98
+  },
+  {
+    "id": "bandit",
+    "label": [
+      "Bandits & best-arm",
+      "identification"
+    ],
+    "x": 478,
+    "y": 98
+  },
+  {
+    "id": "sequential",
+    "label": [
+      "RL & sequential",
+      "control"
+    ],
+    "x": 793,
+    "y": 98
+  },
+  {
+    "id": "graph",
+    "label": [
+      "Graphical models",
+      "& factorization"
+    ],
+    "x": 112,
+    "y": 293
+  },
+  {
+    "id": "optimization",
+    "label": [
+      "Optimization",
+      "for learning"
+    ],
+    "x": 359,
+    "y": 293
+  },
+  {
+    "id": "coding",
+    "label": [
+      "Finite-blocklength",
+      "& coding"
+    ],
+    "x": 601,
+    "y": 293
+  },
+  {
+    "id": "common",
+    "label": [
+      "Common information",
+      "& testing"
+    ],
+    "x": 846,
+    "y": 293
+  }
+];
+  var colors = { journal: "#407ec3", conference: "#ec7b52", monograph: "#8a6bb6" };
+  var ns = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById("publication-map");
+  var mapTab = document.getElementById("pub-map-tab");
+  var listTab = document.getElementById("pub-list-tab");
+  var mapPanel = document.getElementById("pub-map-panel");
+  var listPanel = document.getElementById("pub-list-panel");
+  var filter = document.getElementById("pub-type-filter");
+  var detail = document.getElementById("pub-detail");
+  var count = document.getElementById("pub-visible-count");
+  var activeId = null;
+  var circles = {};
+  var wasMobile = isMobile();
+
+  function isMobile() {
+    return window.matchMedia && window.matchMedia("(max-width: 700px)").matches;
+  }
+
+  function svgElement(tag, attrs, parent) {
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) {
+      if (Object.prototype.hasOwnProperty.call(attrs, k)) {
+        e.setAttribute(k, String(attrs[k]));
+      }
+    }
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function htmlElement(tag, cssClass, content, parent) {
+    var e = document.createElement(tag);
+    if (cssClass) e.className = cssClass;
+    if (content !== undefined && content !== null) e.textContent = content;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function addLink(label, url, parent) {
+    if (!url) return;
+    var a = htmlElement("a", "", label, parent);
+    a.href = url;
+    return a;
+  }
+
+  function currentPapers() {
+    var type = filter.value;
+    return papers.filter(function (p) { return type === "all" || p.type === type; });
+  }
+
+  function showPaper(p) {
+    activeId = p.id;
+    while (detail.firstChild) detail.removeChild(detail.firstChild);
+    var cluster = clusters.filter(function (c) { return c.id === p.theme; })[0];
+    var typeNames = {journal:"Journal paper",conference:"Conference paper",monograph:"Monograph"};
+    htmlElement("div", "pub-detail-kicker", cluster.label.join(" ") + "  ·  " + typeNames[p.type] + "  ·  " + p.year, detail);
+    var title = htmlElement("div", "pub-detail-title", null, detail);
+    addLink(p.title, p.url, title);
+    htmlElement("div", "pub-detail-authors", p.authors, detail);
+    htmlElement("div", "pub-detail-venue", p.venue, detail);
+    if (p.award) htmlElement("div", "pub-detail-award", p.award, detail);
+    var links = htmlElement("div", "pub-detail-links", null, detail);
+    addLink("Read paper ↗", p.url, links);
+    p.supplemental.slice(0, 4).forEach(function (s) { addLink(s.label + " ↗", s.url, links); });
+    Object.keys(circles).forEach(function (id) {
+      var selected = id === activeId;
+      circles[id].classList.toggle("active", selected);
+      circles[id].setAttribute("aria-pressed", String(selected));
+    });
+  }
+
+  function renderMap() {
+    // Leave the <title> and <desc> of the SVG intact.
+    Array.prototype.slice.call(svg.children).forEach(function (child) {
+      if (child.tagName.toLowerCase() !== "title" && child.tagName.toLowerCase() !== "desc") {
+        svg.removeChild(child);
+      }
+    });
+    circles = {};
+    var visible = currentPapers();
+    var mobile = isMobile();
+    svg.setAttribute("viewBox", mobile ? "0 0 410 805" : "0 0 960 405");
+    var mobileSlots = [
+      {x:105,y:98}, {x:307,y:98},
+      {x:105,y:295}, {x:307,y:295},
+      {x:105,y:492}, {x:307,y:492},
+      {x:205,y:690}
+    ];
+    count.textContent = visible.length + " selected papers across 7 themes";
+    clusters.forEach(function (c, clusterIndex) {
+      var group = visible.filter(function (p) { return p.theme === c.id; });
+      var position = mobile ? mobileSlots[clusterIndex] : c;
+      var cx = position.x, cy = position.y;
+      svgElement("ellipse", {cx:cx, cy:cy, rx:69, ry:47, class:"pub-cluster-area"}, svg);
+      // An evenly-spaced constellation within each manually labeled theme.
+      group.forEach(function (p, index) {
+        var n = group.length;
+        var x, y;
+        if (n === 1) {
+          x = cx; y = cy;
+        } else {
+          var hasMiddle = n > 6;
+          var onRing = hasMiddle ? n - 1 : n;
+          if (hasMiddle && index === n - 1) { x=cx; y=cy; }
+          else {
+            var a = -Math.PI / 2 + (2*Math.PI*index/onRing);
+            var r = n < 5 ? 25 : 32;
+            x = cx + r*Math.cos(a);
+            y = cy + (r*0.90)*Math.sin(a);
+          }
+        }
+        var dot = svgElement("circle", {
+          cx:x, cy:y, r:8.4, fill:colors[p.type],
+          class:"pub-dot", tabindex:"0", role:"button",
+          "aria-label":p.title + ", " + p.year,
+          "aria-pressed":String(p.id === activeId)
+        }, svg);
+        svgElement("title", {}, dot).textContent = p.title + " (" + p.year + ")";
+        dot.addEventListener("click", function () { showPaper(p); });
+        dot.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); showPaper(p); }
+        });
+        circles[p.id] = dot;
+      });
+      var label = svgElement("text", {x:cx, y:cy+66, class:"pub-cluster-label"}, svg);
+      c.label.forEach(function (line, i) {
+        var tspan = svgElement("tspan", {x:cx,dy:i===0?0:19}, label);
+        tspan.textContent = line;
+      });
+      svgElement("text", {x:cx, y:cy+66+(c.label.length-1)*19+17, class:"pub-cluster-count"}, svg).textContent = group.length + " papers";
+    });
+    var found = visible.find(function (p) { return p.id === activeId; });
+    if (!found) {
+      if (visible.length) showPaper(visible[0]);
+      else detail.textContent = "No papers match this filter.";
+    } else {
+      showPaper(found);
+    }
+  }
+
+  function switchTab(which) {
+    var onMap = which === "map";
+    mapPanel.hidden = !onMap;
+    listPanel.hidden = onMap;
+    filter.disabled = !onMap;
+    mapTab.setAttribute("aria-selected", String(onMap));
+    listTab.setAttribute("aria-selected", String(!onMap));
+  }
+  mapTab.addEventListener("click", function () { switchTab("map"); });
+  listTab.addEventListener("click", function () { switchTab("list"); });
+  filter.addEventListener("change", renderMap);
+  window.addEventListener("resize", function () {
+    if (isMobile() !== wasMobile) { wasMobile = isMobile(); renderMap(); }
+  });
+  switchTab("map");
+  renderMap();
+}());
+//]]>
+</script>
+
+
+<!-- Default Statcounter code for Vincent's website -->
+<script type="text/javascript">
+var sc_project=6896597; 
+var sc_invisible=1; 
+var sc_security="12af93b4"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="free web stats"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/6896597/0/12af93b4/1/"
+alt="free web stats"></a></div></noscript>
+<!-- End of Statcounter Code -->
+ 
+ 
+
+</div> <!-- home-content -->
+
+<div id="footer">
+  <div id="footer-text">
+  </div>
+</div>
+</td>
+ 
+</tr>
+</tbody></table>
+
+
+</body></html>
