@@ -157,7 +157,10 @@
   border-top: 1px solid #e1e6eb;
   padding: 0.95em 0 0.25em;
   max-width: 900px;
-  min-height: 5.5em;
+  /* Reserve enough space so hovering over longer titles does not shift the page. */
+  height: 16em;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 #publication-explorer .pub-detail-kicker {
   color: #607083;
@@ -198,6 +201,8 @@
   #publication-explorer .pub-legend { gap: 7px 12px; }
   #publication-explorer .pub-count { width: 100%; margin-left: 0; }
   #publication-explorer #publication-map { min-width: 0; width: 100%; }
+  /* Allow extra room for wrapped titles and author lists on phones. */
+  #publication-explorer .pub-detail { height: 23em; }
 }
 
 </style>
